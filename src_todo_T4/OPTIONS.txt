@@ -1,0 +1,1 @@
+bx=16 by=16 opt_loop_unroll=1 opt_register=1 opt_branch=1

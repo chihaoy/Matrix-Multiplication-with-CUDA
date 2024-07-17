@@ -1,0 +1,37 @@
+Running in mode: tiling
+Basic options - n: 1024, bx: 16, by: 16, tm: 8 tn: 8 tk:4
+Optimization options - opt_loop_unroll: 1, opt_register: 1, opt_branch: 1
+
+# devices: 1
+
+Device is a Tesla T4, capability: 7.5
+Clock speed: 1590.000000 MHz
+# cores: 40
+
+Global memory: 14.560913GB
+Memory Clock Rate (MHz): 5001.000000
+Memory Bus Width (bits): 256
+Peak Memory Bandwidth (GB/s): 320.064000
+L2 Cache size: (KB): 4096.000000
+ECC Enabled
+Device shares a unified address space with the host
+CUDA Driver version: 11060, runtime version: 10010
+
+ capability 7.5
+n: 1024, tx: 16, ty: 16, gridX: 64, gridY: 64, reps: 10, epsilon: 0.000366211
+
+gridDim.x: 8, gridDim.y: 8
+TILEDIM_N: 128, TILEDIM_M: 128
+n: 1024, tx: 16, ty: 16, gridX: 8, gridY: 8, reps: 10, epsilon: 0.000366211
+
+Using Single precision arithmetic
+
+
+Device computation time: 0.005648 sec. [3802.110281 gflops]
+
+     N     TX     TY   Reps       t_h     GF_h       t_d   GF_d   Host?  L1? Rnd?  BT?  SHM
+@  1024    16     16     10   0.00e+00     0.0  5.65e-03 3802.1     N    N    N    N    4
+
+
+Device result: answers matched to within 0.000366211
+

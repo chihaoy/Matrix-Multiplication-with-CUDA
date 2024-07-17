@@ -1,0 +1,51 @@
+Running in mode: tiling
+Basic options - n: 1024, bx: 16, by: 16, tm: 4 tn: 4 tk:4
+Optimization options - opt_loop_unroll: 1, opt_register: 1, opt_branch: 1
+Applications clocks set to "(MEM 5001, SM 1590)" for GPU 00000000:00:1E.0
+All done.
+make: Entering directory '/home/ubuntu/cse260/pa2-pa2-chy007-owenlly/build_T4'
+/usr/bin/nvcc -O3 -gencode arch=compute_75,code=sm_75 -c -DTARGET_T4  --ptxas-options=-v "-DUSE_TILING" -DBLOCKDIM_X=16 -DBLOCKDIM_Y=16  -DTILESCALE_M=4 -DTILESCALE_N=4 -DTILESCALE_K=4 -DOPT_UNROLL=1 -DOPT_REGISTER=1 -DOPT_BRANCH=1 -c ../src/mmpy.cu -o ../src/mmpy.o
+/usr/bin/g++ -I/usr/include/openblas -DTARGET_T4 -DBLOCKDIM_X=16 -DBLOCKDIM_Y=16  -DTILESCALE_M=4 -DTILESCALE_N=4 -DTILESCALE_K=4 -DOPT_UNROLL=1 -DOPT_REGISTER=1 -DOPT_BRANCH=1 -c ../src/mmpy_host.cpp -o ../src/mmpy_host.o
+/usr/bin/g++ -I/usr/include/openblas -DTARGET_T4 -DBLOCKDIM_X=16 -DBLOCKDIM_Y=16  -DTILESCALE_M=4 -DTILESCALE_N=4 -DTILESCALE_K=4 -DOPT_UNROLL=1 -DOPT_REGISTER=1 -DOPT_BRANCH=1 -c ../src/genMatrix.cpp -o ../src/genMatrix.o
+/usr/bin/g++ -I/usr/include/openblas -DTARGET_T4 -DBLOCKDIM_X=16 -DBLOCKDIM_Y=16  -DTILESCALE_M=4 -DTILESCALE_N=4 -DTILESCALE_K=4 -DOPT_UNROLL=1 -DOPT_REGISTER=1 -DOPT_BRANCH=1 -c ../src/cmdLine.cpp -o ../src/cmdLine.o
+/usr/bin/g++ -I/usr/include/openblas -DTARGET_T4 -DBLOCKDIM_X=16 -DBLOCKDIM_Y=16  -DTILESCALE_M=4 -DTILESCALE_N=4 -DTILESCALE_K=4 -DOPT_UNROLL=1 -DOPT_REGISTER=1 -DOPT_BRANCH=1 -c ../src/Timer.cpp -o ../src/Timer.o
+/usr/bin/nvcc -O3 -gencode arch=compute_75,code=sm_75 -c -DTARGET_T4  --ptxas-options=-v "-DUSE_TILING" -DBLOCKDIM_X=16 -DBLOCKDIM_Y=16  -DTILESCALE_M=4 -DTILESCALE_N=4 -DTILESCALE_K=4 -DOPT_UNROLL=1 -DOPT_REGISTER=1 -DOPT_BRANCH=1 -c ../src/utils.cu -o ../src/utils.o
+/usr/bin/g++ -I/usr/include/openblas -DTARGET_T4 -DBLOCKDIM_X=16 -DBLOCKDIM_Y=16  -DTILESCALE_M=4 -DTILESCALE_N=4 -DTILESCALE_K=4 -DOPT_UNROLL=1 -DOPT_REGISTER=1 -DOPT_BRANCH=1 -c ../src/Report.cpp -o ../src/Report.o
+/usr/bin/nvcc -O3 -gencode arch=compute_75,code=sm_75 -c -DTARGET_T4  --ptxas-options=-v "-DUSE_TILING" -DBLOCKDIM_X=16 -DBLOCKDIM_Y=16  -DTILESCALE_M=4 -DTILESCALE_N=4 -DTILESCALE_K=4 -DOPT_UNROLL=1 -DOPT_REGISTER=1 -DOPT_BRANCH=1 -c ../src_todo_T4/setGrid.cu -o ../src_todo_T4/setGrid.o
+/usr/bin/nvcc -O3 -gencode arch=compute_75,code=sm_75 -c -DTARGET_T4  --ptxas-options=-v "-DUSE_TILING" -DBLOCKDIM_X=16 -DBLOCKDIM_Y=16  -DTILESCALE_M=4 -DTILESCALE_N=4 -DTILESCALE_K=4 -DOPT_UNROLL=1 -DOPT_REGISTER=1 -DOPT_BRANCH=1 -c ../src_todo_T4/mmpy_kernel.cu -o ../src_todo_T4/mmpy_kernel.o
+/usr/bin/nvcc -o ../mmpy  ../src/mmpy.o  ../src/mmpy_host.o  ../src/genMatrix.o ../src/cmdLine.o ../src/Timer.o ../src/utils.o ../src/Report.o ../src_todo_T4/setGrid.o  -lblas -lpthread -lm -lcublas
+make: Leaving directory '/home/ubuntu/cse260/pa2-pa2-chy007-owenlly/build_T4'
+Make succeeded, running ./mmpy with n=1024
+# devices: 1
+
+Device is a Tesla T4, capability: 7.5
+Clock speed: 1590.000000 MHz
+# cores: 40
+
+Global memory: 14.560913GB
+Memory Clock Rate (MHz): 5001.000000
+Memory Bus Width (bits): 256
+Peak Memory Bandwidth (GB/s): 320.064000
+L2 Cache size: (KB): 4096.000000
+ECC Enabled
+Device shares a unified address space with the host
+CUDA Driver version: 11060, runtime version: 10010
+
+ capability 7.5
+n: 1024, tx: 16, ty: 16, gridX: 64, gridY: 64, reps: 10, epsilon: 0.000366211
+
+gridDim.x: 16, gridDim.y: 16
+TILEDIM_N: 64, TILEDIM_M: 64
+n: 1024, tx: 16, ty: 16, gridX: 16, gridY: 16, reps: 10, epsilon: 0.000366211
+
+Using Single precision arithmetic
+
+
+Device computation time: 0.005700 sec. [3767.599136 gflops]
+
+     N     TX     TY   Reps       t_h     GF_h       t_d   GF_d   Host?  L1? Rnd?  BT?  SHM
+@  1024    16     16     10   0.00e+00     0.0  5.70e-03 3767.6     N    N    N    N    4
+
+
+Device result: answers matched to within 0.000366211
+

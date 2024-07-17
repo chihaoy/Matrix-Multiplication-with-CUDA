@@ -1,0 +1,14 @@
+==PROF== Connected to process 13035 (/home/ubuntu/cse260/pa2-pa2-chy007-owenlly/mmpy)
+==PROF== Profiling "volta_sgemm_128x64_nn" - 1: 0%....50%....100% - 32 passes
+==PROF== Profiling "volta_sgemm_128x64_nn" - 2: 0%....50%....100% - 32 passes
+==PROF== Profiling "volta_sgemm_128x64_nn" - 3: 0%....50%....100% - 32 passes
+==PROF== Profiling "volta_sgemm_128x64_nn" - 4: 0%....50%....100% - 32 passes
+==PROF== Profiling "volta_sgemm_128x64_nn" - 5: 0%....50%....100% - 32 passes
+==PROF== Profiling "volta_sgemm_128x64_nn" - 6: 0%....50%....100% - 32 passes
+==PROF== Profiling "volta_sgemm_128x64_nn" - 7: 0%....50%....100% - 32 passes
+==PROF== Profiling "volta_sgemm_128x64_nn" - 8: 0%....50%....100% - 32 passes
+==PROF== Profiling "volta_sgemm_128x64_nn" - 9: 0%....50%....100% - 32 passes
+==PROF== Profiling "volta_sgemm_128x64_nn" - 10: 0%....50%....100% - 32 passes
+==PROF== Profiling "matMul" - 11: 0%....50%....100% - 32 passes
+==PROF== Disconnected from process 13035
+==PROF== Report: /home/ubuntu/cse260/pa2-pa2-chy007-owenlly/profile.ncu-rep
